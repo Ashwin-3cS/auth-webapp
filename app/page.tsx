@@ -1,11 +1,5 @@
-import { DeployButton } from "@/components/deploy-button";
-import { LoginForm } from "@/components/login-form";
-
+import { redirect, RedirectType } from "next/navigation";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-      <LoginForm/>
-    </main>
-  );
+  redirect("/auth/login",RedirectType.push);
 }
