@@ -85,5 +85,5 @@ proxy.ts                    # Next.js proxy entry point
 ## Used references for this web-auth flow implementation
 
 - [Supabase Auth with Next.js](https://supabase.com/docs/guides/auth/quickstarts/nextjs)
-- [Creating Supabase clients for Next.js](https://supabase.com/docs/guides/auth/server-side/creating-a-client?queryGroups=framework&framework=nextjs#congratulations)
-- [Google social login with Supabase](https://supabase.com/docs/guides/auth/social-login/auth-google?queryGroups=framework&framework=nextjs#prerequisites)
+- [Creating Supabase clients for Next.js](https://supabase.com/docs/guides/auth/server-side/creating-a-client)
+- [Google social login with Supabase](https://supabase.com/docs/guides/auth/social-login/auth-google)
