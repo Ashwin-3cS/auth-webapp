@@ -70,22 +70,27 @@ export function LoginForm({
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card>
+      <Card className="border-slate-200 bg-white shadow-sm">
         <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
-          <CardDescription>
-            Enter your email below to login to your account
+          <CardTitle className="text-2xl text-slate-950">
+            Log in to your account
+          </CardTitle>
+          <CardDescription className="text-slate-500">
+            Welcome back! Please enter your details.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleLogin}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="m@example.com"
+                  <Label htmlFor="email" className="text-slate-700">
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="m@example.com"
+                    className="auth-input border-slate-300 bg-white text-slate-950 placeholder:text-slate-400 focus:bg-white focus-visible:bg-white"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -93,41 +98,47 @@ export function LoginForm({
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password" className="text-slate-700">
+                    Password
+                  </Label>
                   <Link
                     href="/auth/forgot-password"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                    className="ml-auto inline-block text-sm text-violet-600 underline-offset-4 hover:underline"
                   >
                     Forgot your password?
                   </Link>
                 </div>
                 <Input
-                  id="password"
-                  type="password"
+                    id="password"
+                    type="password"
+                    className="auth-input border-slate-300 bg-white text-slate-950 focus:bg-white focus-visible:bg-white"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               {error && <p className="text-sm text-red-500">{error}</p>}
-              <Button type="submit" className="w-full" disabled={isLoading}>
+              <Button
+                type="submit"
+                className="w-full bg-violet-600 text-white hover:bg-violet-700 hover:text-white"
+                disabled={isLoading}
+              >
                 {isLoading ? "Logging in..." : "Login"}
               </Button>
             </div>
-              <Button
-                type="button"
-                variant="outline"
-                className="w-full"
-                onClick={handleGoogleLogin}
-                disabled={isLoading}
-              >
-                Continue with Google
-              </Button>
-            <div className="mt-4 text-center text-sm">
+            <button
+              type="button"
+              className="mt-3 inline-flex h-10 w-full items-center justify-center rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
+              onClick={handleGoogleLogin}
+              disabled={isLoading}
+            >
+              Continue with Google
+            </button>
+            <div className="mt-4 text-center text-sm text-slate-600">
               Don&apos;t have an account?{" "}
               <Link
                 href="/auth/sign-up"
-                className="underline underline-offset-4"
+                className="text-violet-600 underline underline-offset-4"
               >
                 Sign up
               </Link>
