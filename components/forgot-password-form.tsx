@@ -47,23 +47,25 @@ export function ForgotPasswordForm({
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       {success ? (
-        <Card>
+        <Card className="border-slate-200 bg-white shadow-sm">
           <CardHeader>
-            <CardTitle className="text-2xl">Check Your Email</CardTitle>
-            <CardDescription>Password reset instructions sent</CardDescription>
+            <CardTitle className="text-2xl text-slate-950">Check your email</CardTitle>
+            <CardDescription className="text-slate-500">
+              Password reset instructions sent
+            </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-slate-600">
               If you registered using your email and password, you will receive
               a password reset email.
             </p>
           </CardContent>
         </Card>
       ) : (
-        <Card>
+        <Card className="border-slate-200 bg-white shadow-sm">
           <CardHeader>
-            <CardTitle className="text-2xl">Reset Your Password</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-2xl text-slate-950">Reset your password</CardTitle>
+            <CardDescription className="text-slate-500">
               Type in your email and we&apos;ll send you a link to reset your
               password
             </CardDescription>
@@ -72,26 +74,33 @@ export function ForgotPasswordForm({
             <form onSubmit={handleForgotPassword}>
               <div className="flex flex-col gap-6">
                 <div className="grid gap-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email" className="text-slate-700">
+                    Email
+                  </Label>
                   <Input
                     id="email"
                     type="email"
                     placeholder="m@example.com"
+                    className="auth-input border-slate-300 bg-white text-slate-950 placeholder:text-slate-400 focus:bg-white focus-visible:bg-white"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 {error && <p className="text-sm text-red-500">{error}</p>}
-                <Button type="submit" className="w-full" disabled={isLoading}>
+                <Button
+                  type="submit"
+                  className="w-full bg-violet-600 text-white hover:bg-violet-700 hover:text-white"
+                  disabled={isLoading}
+                >
                   {isLoading ? "Sending..." : "Send reset email"}
                 </Button>
               </div>
-              <div className="mt-4 text-center text-sm">
+              <div className="mt-4 text-center text-sm text-slate-600">
                 Already have an account?{" "}
                 <Link
                   href="/auth/login"
-                  className="underline underline-offset-4"
+                  className="text-violet-600 underline underline-offset-4"
                 >
                   Login
                 </Link>

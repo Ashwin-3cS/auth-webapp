@@ -11,11 +11,11 @@ async function ErrorContent({
   return (
     <>
       {params?.error ? (
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-slate-600">
           Code error: {params.error}
         </p>
       ) : (
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-slate-600">
           An unspecified error occurred.
         </p>
       )}
@@ -29,12 +29,12 @@ export default function Page({
   searchParams: Promise<{ error: string }>;
 }) {
   return (
-    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+    <main className="flex min-h-[calc(100svh-73px)] w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-sm">
         <div className="flex flex-col gap-6">
-          <Card>
+          <Card className="border-slate-200 bg-white shadow-sm">
             <CardHeader>
-              <CardTitle className="text-2xl">
+              <CardTitle className="text-2xl text-slate-950">
                 Sorry, something went wrong.
               </CardTitle>
             </CardHeader>
@@ -46,6 +46,6 @@ export default function Page({
           </Card>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
