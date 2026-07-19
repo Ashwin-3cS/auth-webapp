@@ -58,6 +58,15 @@
   }
 }
 
+@layer utilities {
+  .auth-input:-webkit-autofill,
+  .auth-input:-webkit-autofill:hover,
+  .auth-input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #0f172a;
+    box-shadow: 0 0 0 1000px #fff inset;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
